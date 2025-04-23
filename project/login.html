@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bakery Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px; /* Padding badhaya */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Width set kiya */
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px; /* Padding badhaya */
+    margin-bottom: 15px; /* Margin badhaya */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.hidden {
+    display: none;
+}
+@media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div id="login">
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Login</button>
+                <p><a href="#forgot-password" id="forgot-password-link">Forgot Password?</a></p>
+            </form>
+            <p>New Customer? <a href="#register" id="register-link">Register Here</a></p>
+        </div>
+
+        <div id="register" class="hidden">
+            <h2>Create an Account</h2>
+            <form id="register-form">
+                <label for="reg-email">Email:</label>
+                <input type="email" id="reg-email" name="reg-email" required>
+
+                <label for="reg-password">Password:</label>
+                <input type="password" id="reg-password" name="reg-password" required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="#login" id="login-link">Login Here</a></p>
+            </form>
+        </div>
+
+        <div id="forgot-password" class="hidden">
+            <h2>Reset Your Password</h2>
+            <form id="forgot-password-form">
+                <label for="reset-email">Email:</label>
+                <input type="email" id="reset-email" name="reset-email" required>
+                
+                <button type="submit">Send Reset Link</button>
+                <p><a href="#login" id="back-to-login">Back to Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    document.getElementById('register-link').addEventListener('click', function() {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('register').classList.remove('hidden');
+    });
+
+    // Handle registration form submission
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const email = document.getElementById('reg-email').value;
+        const password = document.getElementById('reg-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        // Basic validation
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Here you can send the data to the server
+        console.log("Registered with Email:", email);
+        alert("Registration successful!");
+
+        // Reset the form
+        this.reset();
+        document.getElementById('register').classList.add('hidden'); // Hide registration form
+        document.getElementById('login').classList.remove('hidden'); // Show login form
+    });
+
+    // Handle login link click
+    document.getElementById('login-link').addEventListener('click', function() {
+        document.getElementById('register').classList.add('hidden');
+        document.getElementById('login').classList.remove('hidden');
+    });
+
+    // Handle forgot password link click
+    document.getElementById('forgot-password-link').addEventListener('click', function() {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('forgot-password').classList.remove('hidden');
+    });
+
+    // Handle back to login link click
+    document.getElementById('back-to-login').addEventListener('click', function() {
+        document.getElementById('forgot-password').classList.add('hidden');
+        document.getElementById('login').classList.remove('hidden');
+    });
+
+    // Handle password reset form submission
+    document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const resetEmail = document.getElementById('reset-email').value;
+        // Here you can send the reset link to the email
+        console.log("Password reset link sent to:", resetEmail);
+        alert("Password reset link has been sent to your email!");
+
+        // Reset the form
+        this.reset();
+        document.getElementById('forgot-password').classList.add('hidden'); // Hide forgot password form
+        document.getElementById('login').classList.remove('hidden'); // Show login form
+    });
+</script>
+</html>

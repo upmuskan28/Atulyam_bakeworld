@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="homestyle.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="">
+</head>
+
+
+<style>
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .container input, .container button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .container button {
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .container button:hover {
+      background-color: #4cae4c;
+    }
+  </style>
+<script>
+  // Modal control
+  const modal = document.getElementById("loginModal");
+  document.querySelector(".account").addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  // Toggle forms
+  document.getElementById('register-link').onclick = function () {
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('register').classList.remove('hidden');
+  };
+
+  document.getElementById('login-link').onclick = function () {
+    document.getElementById('register').classList.add('hidden');
+    document.getElementById('login').classList.remove('hidden');
+  };
+
+  document.getElementById('forgot-password-link').onclick = function () {
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('forgot-password').classList.remove('hidden');
+  };
+
+  document.getElementById('back-to-login').onclick = function () {
+    document.getElementById('forgot-password').classList.add('hidden');
+    document.getElementById('login').classList.remove('hidden');
+  };
+
+</script>
+<style>
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 170px;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content a {                       
+  padding: 12px 19px;
+  text-decoration: none;
+  display: block;
+  background-color: rgb(0, 0, 0);     
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(233, 25, 25);     
+  color: black;                
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  cursor: pointer;
+  color: black;               
+}
+</style>
+<body>
+    
+  <!-- Header Section -->
+  <div class="Header">
+    <a href="#" class="logo"><img src="Brown Beige Cute Bakery Logo.png" alt="Logo"/></a>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search..." class="search-box"/>
+      <button class="search-button">Search</button>  
+    </div>
+
+    <div class="navbar-content">
+      <nav class="navbar">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown">
+            <a href="Product.html" class="dropbtn">Our Products</a>
+            <div class="dropdown-content">
+              <a href="#">Cakes</a>
+              <a href="#">Cookies</a>
+              <a href="#">Cupcakes</a>
+              <a href="#">Donuts</a>
+              <a href="#">Muffins</a>
+              <a href="#">Waffles</a>
+              <a href="#">Chocolates</a>
+              <a href="#">Croissant</a>
+            </div>
+          </li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>        
+      </nav>
+    </div>
+
+    <div class="icons"> 
+      <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+      <div class="cart-icon"><i class="fa-solid fa-cart-arrow-down"></i></div>
+      <div class="account"><i class="fa-solid fa-user"></i></div>
+    </div>
+  </div>
+
+  
+  <!-- Login/Register Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="container">
+        <div id="login">
+          <h2>Login to Your Account</h2>
+          <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+            <p><a href="#forgot-password" id="forgot-password-link">Forgot Password?</a></p>
+          </form>
+          <p>New Customer? <a href="#register" id="register-link">Register Here</a></p>
+        </div>
+
+        <div id="register" class="hidden">
+          <h2>Create an Account</h2>
+          <form id="register-form">
+            <label for="reg-email">Email:</label>
+            <input type="email" id="reg-email" name="reg-email" required>
+
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="reg-password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="#login" id="login-link">Login Here</a></p>
+          </form>
+        </div>
+
+        <div id="forgot-password" class="hidden">
+          <h2>Reset Your Password</h2>
+          <form id="forgot-password-form">
+            <label for="reset-email">Email:</label>
+            <input type="email" id="reset-email" name="reset-email" required>
+            
+            <button type="submit">Send Reset Link</button>
+            <p><a href="#login" id="back-to-login">Back to Login</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <header class="Name"> Atulyam Bakeworld Since 1977
+        <br>
+        <h4 class="movingobj" style="font-size: 30px" ;>
+            <marquee>" Dessert : The Sweetest form of self love "</marquee>
+        </h4>
+        <h5 style="font-size: 30px" ;><marquee-right>" Dessert is not meal; it's a moment "</marquee>
+        </h5>
+
+        </h1>
+
+    </header>
+    <!-- Text content showing  -->
+    <div class="offer">
+        <h2 style="font-size: 100px;">Keep Connect With Our Specials</h2><br>
+
+
+        <a>******************************************</a>
+
+        <h6 style="font-size: 50px;">
+            Cupcakes - Muffins - Bread - Donuts
+        </h6>
+        <a>****************************************** </a>
+    </div>
+    <div class="Image">
+    </div>
+
+    <!--image Card 1 -->
+
+    <div class="product-descreption">
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="cake.webp">
+            </div>
+            <div class="desc">
+                <h1>Cake</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="cookies.jpeg">
+            </div>
+            <div class="desc">
+                <h1>Cookies</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="croissant.jpeg">
+            </div>
+            <div class="desc">
+                <h1>Crossiant</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- image Card 2 -->
+    <div class="product-descreption">
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="cupcake.webp">
+            </div>
+            <div class="desc">
+                <h1>Cupcake</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="donuts.jpeg">
+            </div>
+            <div class="desc">
+                <h1>Donuts</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="Muffins.webp">
+            </div>
+            <div class="desc">
+                <h1>Muffins</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- image card 3 -->
+    <div class="product-descreption">
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="waffels.webp">
+            </div>
+            <div class="desc">
+                <h1>Waffles</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="supersaving.jpg">
+            </div>
+            <div class="desc">
+                <h1>Gift Hamfer</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+
+        <div class="prodec1">
+            <div class="imagdec">
+                <img src="choclate.webp">
+            </div>
+            <div class="desc">
+                <h1>Chocolate</h1>
+            </div>
+            <div class="buttdesc">
+                <button>Checkout..</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact us -->
+     
+    <div class="contact-us" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us using the form below!</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div id="successMessage" class="success-message" style="display: none;">Thank you for contacting us! We'll get back to you soon.</div>
+    </div>
+
+    <!-- Footer image -->
+
+        <div class="footerimg">
+            <div class="four_images">
+                <img src="img1.avif">
+                <span> Carefully Selected ingridient</span>
+            </div>
+            <div class="four_images">
+                <img src="img2.avif">
+                <span>Baked Fresh in Small Batches</span>
+            </div>
+            <div class="four_images">
+                <img src="img3.avif">
+                <span>Made With Care Like Home</span>
+            </div>
+            <div class="four_images">
+                <img src="img4.avif">
+                <span>Packed With Love and Care</span>
+            </div>
+        </div>
+
+        <div class="Footer-content">
+            <div class="Footer">
+                <div class="footer-heading footer-1">
+                    <h2>
+                        About Us
+                    </h2>
+                    <a href="blog">Blog</a>
+                    <a href="Track">+91 8774564657</a>
+                    <a href="Address">Atulyam bake world<br>
+                        8, ground Floor,Afg<br>
+                        Ashiyana,Lucknow</a>
+                    <a href=" Links">atylumbakeworld</a>
+                    <a href="gLinks">www.atulyambakeworld.com</a>
+                </div>
+                <div class="footer-heading footer-2">
+                    <h2>
+                        Quick Links
+                    </h2>
+                    <a href="Q Links">Offers</a>
+                    <a href="Quick Links">Privacy Policy</a>
+                    <a href="RTrack">Refund & Cancellation</a>
+                    <a href="tTrack">Terms & conditions</a>
+                </div>
+                <div class="footer-heading footer-3">
+                    <h2>Shop
+                    </h2>
+                    <a href="RTrack">cookies</a>
+                    <a href="RTrack">cake</a>
+                    <a href="RTrack">Cupcake</a>
+                    <a href="RTrack">waffels</a>
+                    <a href="RTrack">Muffins</a>
+                    <a href="RTrack">Crossiant</a>
+
+                </div>
+                <div class="footer-heading-email">
+                    <h2>Join for our Special Gifts </h2>
+                    <input type="email"  placeholder="Enter your Email" id="footer-email"><br>
+                    <input type="submit" value="Register" id="footer-email-btn">
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            // Show modal
+            document.querySelector(".account").addEventListener("click", () => {
+              document.getElementById("loginModal").style.display = "block";
+            });
+        
+            // Close modal
+            function closeModal() {
+              document.getElementById("loginModal").style.display = "none";
+            }
+        
+            window.onclick = function(event) {
+              if (event.target === document.getElementById("loginModal")) {
+                closeModal();
+              }
+            };
+        
+            // Form toggles
+            document.getElementById('register-link').addEventListener('click', function() {
+              document.getElementById('login').classList.add('hidden');
+              document.getElementById('register').classList.remove('hidden');
+            });
+        
+            document.getElementById('login-link').addEventListener('click', function() {
+              document.getElementById('register').classList.add('hidden');
+              document.getElementById('login').classList.remove('hidden');
+            });
+        
+            document.getElementById('forgot-password-link').addEventListener('click', function() {
+              document.getElementById('login').classList.add('hidden');
+              document.getElementById('forgot-password').classList.remove('hidden');
+            });
+        
+            document.getElementById('back-to-login').addEventListener('click', function() {
+              document.getElementById('forgot-password').classList.add('hidden');
+              document.getElementById('login').classList.remove('hidden');
+            });
+        
+            // Registration validation
+            document.getElementById('register-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const pass = document.getElementById('reg-password').value;
+              const confirm = document.getElementById('confirm-password').value;
+              if (pass !== confirm) {
+                alert("Passwords do not match!");
+                return;
+              }
+              alert("Registration successful!");
+              this.reset();
+              document.getElementById('register').classList.add('hidden');
+              document.getElementById('login').classList.remove('hidden');
+            });
+        
+            document.getElementById('forgot-password-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              alert("Password reset link sent!");
+              this.reset();
+              document.getElementById('forgot-password').classList.add('hidden');
+              document.getElementById('login').classList.remove('hidden');
+            });
+          </script>
+  
+
+</body>
+
+</html>

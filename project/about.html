@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Page</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial,sans-serif;
+}
+/* About Us start */
+.hero{
+    background-color: #f8f8f8;
+    overflow: hidden;
+
+}
+.heading h1{
+    color: black;
+    font-size: 55px;
+    text-align: center;
+    margin-top: 35px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto;
+}
+.hero-content {
+    flex: 1;
+    width: 600px;
+    margin: 0px 25px;
+}
+.hero-content h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.hero-content p{
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #666;
+}
+.hero-content button{
+    display: inline-block;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.3s ease;
+}
+.hero-content button:hover{
+    background-color:rgb(39, 25, 25);
+}
+.hero-img{
+    flex: 1;
+    width: auto;
+    margin: auto;
+}
+img{
+    width: 100%;
+    height: 500%;
+    border-radius: 10px;
+}
+@media screen and (max-width: 768px){
+    .heading h1{
+        font-size: 45px;
+        margin-top: 30px;
+    }
+    .hero{
+        margin: 0px;
+    }
+    .container{
+        width: 100%;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px 40px;
+    }
+    .hero-content{
+        width: 100%;
+        margin: 35px 0px;
+    }
+    .hero-content h2{
+        font-size: 30px;
+    }
+    .hero-content p{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .hero-content button{
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+    .hero-img{
+        width: 100%;
+    }
+}
+ 
+ /* Footer Start */
+ .Footer-content{
+    background-color: rgb(68, 102, 141);
+    padding-bottom: 400px;
+}
+.Footer{
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading a {
+    color: white;
+    text-decoration: none;
+    line-height: 30px;
+    padding-left: 10px;
+    transition: .5s;
+}
+.footer-heading a:hover {
+    text-decoration: underline;
+    padding-left: 20px;
+  
+}
+.footer-heading-email input{
+    margin-top: 20px;
+  font-size: 20px;
+}
+
+</style>
+<body>
+
+    <div class="hero">
+        <div class="heading">
+            <h1>About Us</h1>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome To Our Website</h2>
+                <p>" Atulyam is a Sanskrit word that means 'Incredible/Uncomparable' in English, befitting our exclusive and indulgent range of offerings that include brownies, cakes, desserts, chocolates, breads, pastries, muffines and savouries etc. Our mission is to spread happiness by serving smiles on a plate, and this journey continues as we open Atulyam Bakery across the country."
+                </p>
+                <button class="cta-button">Learn More</button>
+            </div>
+            <div class="hero-img">
+                <img src="bakery7.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="Footer-content">
+        <div class="Footer">
+            <div class="footer-heading footer-1">
+                <h2>
+                    About Us
+                </h2>
+                <a href="blog">Blog</a>
+                <a href="Track">+91 8774564657</a>
+                <a href="Address">Atulyam bake world<br>
+                    8, ground Floor,Afg<br>
+                    Ashiyana,Lucknow</a>
+                <a href=" Links">atylumbakeworld</a>
+                <a href="gLinks">www.atulyambakeworld.com</a>
+            </div>
+            <div class="footer-heading footer-2">
+                <h2>
+                    Quick Links
+                </h2>
+                <a href="Q Links">Offers</a>
+                <a href="Quick Links">Privacy Policy</a>
+                <a href="RTrack">Refund & Cancellation</a>
+                <a href="tTrack">Terms & conditions</a>
+            </div>
+            <div class="footer-heading footer-1">
+                <h2>Shop
+                </h2>
+                <a href="RTrack">cookies</a>
+                <a href="RTrack">cake</a>
+                <a href="RTrack">Cupcake</a>
+                <a href="RTrack">waffels</a>
+                <a href="RTrack">Muffins</a>
+                <a href="RTrack">Crossiant</a>
+
+            </div>
+            <div class="footer-heading-email">
+                <h2>Join for our Special Gifts </h2>
+                <input type="email"  placeholder="Enter your Email" id="footer-email"><br>
+                <input type="submit" value="Register" id="footer-email-btn">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
